@@ -1,0 +1,24 @@
+// ~/.config/fastfetch/greeting.jsonc
+
+{
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/arch_logo.txt",
+    "padding": {
+      "top": 1,
+      "left": 2
+    },
+    "color": { "1": "cyan" }
+  },
+  "modules": [
+    "break",
+    { "type": "custom", "format": "───────────────────────────────────────────────" },
+    { "type": "os", "keyColor": "cyan" },
+    { "type": "kernel", "keyColor": "cyan" },
+    { "type": "uptime", "keyColor": "cyan" },
+    { "type": "packages", "keyColor": "cyan" },
+    { "type": "disk", "keyColor": "cyan" },
+    { "type": "custom", "format": "───────────────────────────────────────────────" }
+  ]
+}
+
