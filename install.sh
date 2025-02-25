@@ -15,6 +15,7 @@ stow -t $HOME xorg
 stow -t $HOME bash
 stow -t $HOME zsh
 
+stow -t $HOME emacs
 stow -t $HOME vim
 stow -t $HOME nvim
 
