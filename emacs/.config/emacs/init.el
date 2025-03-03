@@ -15,7 +15,7 @@
 (set-face-attribute 'default nil :font "Source Code Pro" :height 160)
 (custom-set-variables '(display-line-numbers-type 'relative))
 
-(setq compile-command "make -j${nproc}"
+(setq compile-command "bear -- make -j$(nproc)"
       frame-title-format "Emacs"
       inhibit-startup-message t
       initial-scratch-message nil
