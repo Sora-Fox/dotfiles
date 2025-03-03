@@ -58,6 +58,9 @@
 (use-package doom-themes
   :config (load-theme 'doom-material-dark t))
 
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 (use-package vterm
   :config (setq vterm-kill-buffer-on-exit t)
   :bind ("C-c t" . vterm-other-window))
