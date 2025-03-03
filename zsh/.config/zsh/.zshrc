@@ -7,10 +7,12 @@ source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/prompt.zsh
 source $ZDOTDIR/plugins/z/z.sh
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 setopt HIST_SAVE_NO_DUPS
 bindkey -e
+bindkey '^ ' autosuggest-accept
 
 fastfetch --config $XDG_CONFIG_HOME/fastfetch/greeting.jsonc
 
