@@ -11,9 +11,9 @@
 (savehist-mode 1)
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 160)
+(setopt display-line-numbers-type 'relative)
 
-(setq display-line-numbers-type 'relative
-      compile-command "bear -- make -j$(nproc)"
+(setq compile-command "bear -- make -j$(nproc)"
       frame-title-format "Emacs"
       make-backup-files nil
       inhibit-startup-message t
