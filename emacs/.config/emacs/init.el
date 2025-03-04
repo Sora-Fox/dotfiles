@@ -43,11 +43,21 @@
 (setq use-package-always-ensure t)
 
 (use-package ansi-color
-    :hook (compilation-filter . ansi-color-compilation-filter))
+  :hook (compilation-filter . ansi-color-compilation-filter))
 
 (use-package doom-themes
   :demand t
   :config (load-theme 'doom-material-dark t))
+
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-position-line-format '("%l"))
+  (doom-modeline-total-line-number t)
+  (doom-modeline-percent-position nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-major-mode-icon nil)
+  (doom-modeline-icon nil))
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
