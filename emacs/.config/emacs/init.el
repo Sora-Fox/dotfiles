@@ -15,6 +15,7 @@
 (setq display-line-numbers-type 'relative
       compile-command "bear -- make -j$(nproc)"
       frame-title-format "Emacs"
+      make-backup-files nil
       inhibit-startup-message t
       initial-scratch-message nil
       split-width-threshold 0
@@ -40,6 +41,9 @@
         (package-install 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package ansi-color
+    :hook (compilation-filter . ansi-color-compilation-filter))
 
 (use-package doom-themes
   :demand t
