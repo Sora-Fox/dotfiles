@@ -68,6 +68,13 @@
 (use-package marginalia
   :config (marginalia-mode))
 
+(use-package tree-sitter
+  :hook ((c++-mode . tree-sitter-hl-mode)
+	 (c-mode . tree-sitter-hl-mode))
+  :config (global-tree-sitter-mode))
+
+(use-package tree-sitter-langs)
+
 (use-package vterm
   :bind ("C-c t" . vterm-other-window))
 
