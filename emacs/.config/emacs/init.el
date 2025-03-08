@@ -26,7 +26,7 @@
 
 (global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
-(global-set-key (kbd "C-x RET") 'compile)
+(global-set-key (kbd "C-x RET") 'project-compile)
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
