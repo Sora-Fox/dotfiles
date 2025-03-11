@@ -9,6 +9,7 @@
 (blink-cursor-mode -1)
 (recentf-mode 1)
 (savehist-mode 1)
+(column-number-mode 1)
 
 (set-face-attribute 'default nil :font "Source Code Pro" :height 160)
 (setopt display-line-numbers-type 'relative)
@@ -42,6 +43,12 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(use-package dashboard
+  :config
+  (setq dashboard-items '((projects  . 5))
+        initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (dashboard-setup-startup-hook))
+
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
@@ -52,11 +59,14 @@
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
+  (doom-modeline-vcs-max-length 20)
+  (doom-modeline-bar-width -1)
   (doom-modeline-position-line-format '("%l"))
   (doom-modeline-total-line-number t)
   (doom-modeline-percent-position nil)
   (doom-modeline-buffer-encoding nil)
   (doom-modeline-major-mode-icon nil)
+  (doom-modeline-lsp-icon nil)
   (doom-modeline-icon nil))
 
 (use-package hl-todo
@@ -87,7 +97,9 @@
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package lsp-mode
-  :custom (lsp-keymap-prefix "C-l")
+  :custom
+  (lsp-keymap-prefix "C-l")
+  (lsp-headerline-breadcrumb-enable nil)
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred)
 	 (before-save . lsp-format-buffer)))
