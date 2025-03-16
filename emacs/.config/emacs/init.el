@@ -11,6 +11,22 @@
 (savehist-mode 1)
 (column-number-mode 1)
 
+;; (setq-default mode-line-format (list ""
+;;     'mode-line-modified
+;;     " "
+;;     'mode-line-buffer-identification
+;;     " "
+;;     '(line-number-mode "%l")
+;;     '(column-number-mode ":%c")
+;;     'vc-mode
+;;     '(:eval evil-mode-line-tag)
+;;     'mode-line-format-right-align
+;;     'flycheck-mode-line
+;;     " "
+;;     'mode-name
+;;     " "
+;;     'mode-line-end-spaces))
+
 (set-face-attribute 'default nil :font "Source Code Pro" :height 160)
 (setopt display-line-numbers-type 'relative)
 
@@ -43,18 +59,18 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package dashboard
-  :config
-  (setq dashboard-items '((projects  . 5))
-        initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
-  (dashboard-setup-startup-hook))
-
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
 (use-package doom-themes
   :demand t
   :config (load-theme 'doom-material-dark t))
+
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
+(use-package rainbow-mode
+  :hook (prog-mode . rainbow-mode))
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
@@ -65,18 +81,24 @@
   (doom-modeline-total-line-number t)
   (doom-modeline-percent-position nil)
   (doom-modeline-buffer-encoding nil)
-  (doom-modeline-major-mode-icon nil)
-  (doom-modeline-lsp-icon nil)
   (doom-modeline-icon nil))
 
-(use-package hl-todo
-  :hook (prog-mode . hl-todo-mode))
+(use-package dashboard
+  :config
+  (setq dashboard-items '((projects  . 5))
+        initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (dashboard-setup-startup-hook))
 
 (use-package vertico
   :config (vertico-mode))
 
 (use-package marginalia
   :config (marginalia-mode))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package tree-sitter
   :hook ((c++-mode . tree-sitter-hl-mode)
@@ -90,11 +112,6 @@
 
 (use-package flycheck
   :config (global-flycheck-mode))
-
-(use-package orderless
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package lsp-mode
   :custom
