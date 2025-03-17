@@ -44,9 +44,14 @@
 (global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
 (global-set-key (kbd "C-x RET") 'project-compile)
+(global-set-key (kbd "C-c RET") 'hs-toggle-hiding)
 
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
+(defun my-prog-mode-settings ()
+  "Apply custom settings for programming modes."
+  (display-line-numbers-mode 1)
+  (hs-minor-mode 1)
+  (setq truncate-lines t))
+(add-hook 'prog-mode-hook #'my-prog-mode-settings)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -85,7 +90,7 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-items '((projects  . 5))
+  (setq dashboard-items '((projects  . 9))
         initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
 
