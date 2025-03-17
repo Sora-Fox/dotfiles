@@ -27,8 +27,10 @@
 ;;     " "
 ;;     'mode-line-end-spaces))
 
-(set-face-attribute 'default nil :font "Source Code Pro" :height 160)
+(when (find-font (font-spec :name "Source Code Pro"))
+  (set-face-attribute 'default nil :font "Source Code Pro" :height 160))
 (setopt display-line-numbers-type 'relative)
+(global-set-key (kbd "C-x C-g") 'recentf-open-files)
 
 (setq compile-command "bear -- make -j$(nproc)"
       frame-title-format "Emacs"
@@ -41,16 +43,15 @@
       scroll-margin 15
       scroll-conservatively 10000)
 
-(global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-x C-g") 'recentf-open-files)
-(global-set-key (kbd "C-x RET") 'project-compile)
-(global-set-key (kbd "C-c RET") 'hs-toggle-hiding)
-
 (defun my-prog-mode-settings ()
   "Apply custom settings for programming modes."
   (display-line-numbers-mode 1)
   (hs-minor-mode 1)
-  (setq truncate-lines t))
+  (setq truncate-lines t)
+  (local-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
+  (local-set-key (kbd "C-x RET") 'project-compile)
+  (local-set-key (kbd "C-c RET") 'hs-toggle-hiding))
+
 (add-hook 'prog-mode-hook #'my-prog-mode-settings)
 
 (require 'package)
@@ -125,6 +126,9 @@
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred)
 	 (before-save . lsp-format-buffer)))
+
+(use-package ccls
+  :custom (ccls-executable "ccls"))
 
 (use-package company
   :hook (prog-mode . company-mode)
