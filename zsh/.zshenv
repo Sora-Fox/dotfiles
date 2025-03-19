@@ -4,12 +4,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
+export XINITRC=$XDG_CONFIG_HOME/xorg/xinitrc.sh
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export _Z_DATA=$ZDOTDIR/z_data
 export HISTFILE=$ZDOTDIR/zsh_history
 export HISTSIZE=10000
-export SAVEHIST=10000
+export SAVEHIST=0
 
 export CXX=clang++
 export CC=clang
