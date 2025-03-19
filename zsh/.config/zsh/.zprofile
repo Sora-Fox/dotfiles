@@ -1,4 +1,4 @@
 # ~/.config/zsh/.zprofile
 
-# startx
+# XINITRC=~/.config/xorg/xinitrc.sh startx
 
