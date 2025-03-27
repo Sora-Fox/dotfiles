@@ -27,8 +27,7 @@
 ;;     " "
 ;;     'mode-line-end-spaces))
 
-(when (find-font (font-spec :name "Source Code Pro"))
-  (set-face-attribute 'default nil :font "Source Code Pro" :height 160))
+(set-face-attribute 'default nil :font "Source Code Pro" :height 150)
 (setopt display-line-numbers-type 'relative)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
 
@@ -113,15 +112,13 @@
 
 (use-package tree-sitter-langs)
 
-(use-package vterm
-  :bind ("C-c t" . vterm-other-window))
-
 (use-package flycheck
   :config (global-flycheck-mode))
 
 (use-package lsp-mode
   :custom
   (lsp-keymap-prefix "C-l")
+  (lsp-lens-enable nil)
   (lsp-headerline-breadcrumb-enable nil)
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred)
