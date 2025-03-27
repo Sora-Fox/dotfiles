@@ -12,10 +12,10 @@ dimensions = { columns = 80, lines = 25 }
 padding = { x = 0, y = 0 }
 dynamic_padding = false
 startup_mode = "Windowed"
-opacity = 0.8
+opacity = 1.0
 
 [font]
-size = 11.0
+size = 10.0
 normal = { family = "Source Code Pro", style = "Regular" }
 
 [colors]
