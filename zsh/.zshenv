@@ -12,11 +12,17 @@ export HISTFILE=$ZDOTDIR/zsh_history
 export HISTSIZE=10000
 export SAVEHIST=0
 
-export CXX=clang++
 export CC=clang
+export CPP=clang-cpp
+export CXX=clang++
+export AR=llvm-ar
+export NM=llvm-nm
+export RANLIB=llvm-ranlib
+
 export COMMON_FLAGS="-O2 -pipe -march=native -mtune=native"
 export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS}"
+export LDFLAGS="-Wl,-O2 -Wl,--as-needed"
 
 export TERM=xterm-256color
 export EDITOR=emacsclient
