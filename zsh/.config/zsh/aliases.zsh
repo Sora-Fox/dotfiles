@@ -18,6 +18,7 @@ alias gsw='git switch'
 alias gst='git status -sb'
 alias glg='git log --graph --decorate --pretty=oneline --abbrev-commit'
 alias glgl='git log --pretty=format:"%C(yellow)%h %C(blue)%ad %C(green)%an%n%Creset%s%n%n%b" --date=short --name-status'
+alias glog='git log --pretty=format:"%C(yellow)%h%Creset %s%n%C(cyan)Author%Creset: %an [%ae] - %ad%n%C(magenta)Committer%Creset: %cn [%ce] - %cd%n"'
 alias gdf='git diff'
 alias gdfs='git diff --staged'
 
