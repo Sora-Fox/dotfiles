@@ -90,7 +90,7 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-items '((projects  . 9))
+  (setq dashboard-items '((projects  . 11))
         initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
 
