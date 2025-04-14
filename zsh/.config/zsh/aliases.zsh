@@ -22,12 +22,9 @@ alias glog='git log --pretty=format:"%C(yellow)%h%Creset %s%n%C(cyan)Author%Cres
 alias gdf='git diff'
 alias gdfs='git diff --staged'
 
-alias top='sudo btop'
 alias ping='ping -c 2'
 alias md='mkdir -p'
-alias rd='rmdir'
 alias df='df -hT'
-alias cls='clear'
 alias ll='eza --header --long --group --git -Alh --sort=name'
 alias l='eza -1'
 alias ls='eza -Ah'
@@ -39,22 +36,8 @@ alias cpy='xclip -selection clipboard'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
-alias cxx='eval "$CXX $CXXFLAGS"'
 alias ed='${EDITOR} -nw'
 alias clfg='find . \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" \) -not -path "./build/*" -exec clang-format -i {} \;'
-
-function cpploc {
-    dir=${1:-.}
-    for file in $(find $dir -type f -name "*.hpp" -o -name "*.cpp" -o -name "*.h"); do
-        loc=$(tokei $file | tail -n2 | head -n1 | awk '{print $3}')
-        echo -e "$loc\t$file"
-    done 2>/dev/null | sort -n
-    local total=0
-    for file in $(find $dir -type f -name "*.hpp" -o -name "*.cpp" -o -name "*.h"); do
-        loc=$(tokei $file | tail -n2 | head -n1 | awk '{print $3}')
-        ((total += loc))
-    done
-    echo -e "\033[1mTotal:\t${total}\033[0m"
-}
 
