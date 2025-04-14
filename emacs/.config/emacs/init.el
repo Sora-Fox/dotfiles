@@ -74,6 +74,9 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
+(use-package diff-hl
+  :config (global-diff-hl-mode))
+
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
 
@@ -150,3 +153,4 @@
 
 (provide 'init)
 ;;; init.el ends here
+
