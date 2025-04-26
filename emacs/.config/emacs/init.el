@@ -11,22 +11,6 @@
 (savehist-mode 1)
 (column-number-mode 1)
 
-;; (setq-default mode-line-format (list ""
-;;     'mode-line-modified
-;;     " "
-;;     'mode-line-buffer-identification
-;;     " "
-;;     '(line-number-mode "%l")
-;;     '(column-number-mode ":%c")
-;;     'vc-mode
-;;     '(:eval evil-mode-line-tag)
-;;     'mode-line-format-right-align
-;;     'flycheck-mode-line
-;;     " "
-;;     'mode-name
-;;     " "
-;;     'mode-line-end-spaces))
-
 (set-face-attribute 'default nil :font "Source Code Pro" :height 150)
 (setopt display-line-numbers-type 'relative)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
@@ -64,12 +48,25 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(use-package org
+  :ensure nil
+  :custom
+  (org-startup-indented t)
+  (org-startup-truncated nil)
+  (org-todo-keywords '((sequence "TODO" "BUSY" "HOLD" "|" "DONE" "DROP")))
+  (org-todo-keyword-faces '(("TODO" . "#ff5370")
+                            ("BUSY" . "#ffcb6b")
+                            ("HOLD" . "#c792ea")
+                            ("DONE" . "#c3e88d")
+                            ("DROP" . "#676E95"))))
+
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
-(use-package doom-themes
-  :demand t
-  :config (load-theme 'doom-material-dark t))
+;; (use-package doom-themes
+;;   :demand t
+;;   :config (load-theme 'doom-material-dark t))
+(load-theme 'modus-vivendi t)
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
@@ -81,7 +78,7 @@
   :hook (prog-mode . rainbow-mode))
 
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
+  ;; :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-vcs-max-length 20)
   (doom-modeline-bar-width -1)
@@ -110,7 +107,7 @@
 
 (use-package tree-sitter
   :hook ((c++-mode . tree-sitter-hl-mode)
-	 (c-mode . tree-sitter-hl-mode))
+         (c-mode . tree-sitter-hl-mode))
   :config (global-tree-sitter-mode))
 
 (use-package tree-sitter-langs)
@@ -125,7 +122,7 @@
   (lsp-headerline-breadcrumb-enable nil)
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred)
-	 (before-save . lsp-format-buffer)))
+         (before-save . lsp-format-buffer)))
 
 (use-package ccls
   :custom (ccls-executable "ccls"))
