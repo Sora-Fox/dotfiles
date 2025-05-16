@@ -11,7 +11,7 @@
 (savehist-mode 1)
 (column-number-mode 1)
 
-(set-face-attribute 'default nil :font "Source Code Pro" :height 150)
+(set-face-attribute 'default nil :font "Source Code Pro" :height 130)
 (setopt display-line-numbers-type 'relative)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
 
