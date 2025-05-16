@@ -4,9 +4,7 @@
 # export XCURSOR_THEME=arc_midnight_cur
 # export XCURSOR_SIZE=24
 
-# setxkbmap -layout us,ru -option grp:caps_toggle -option caps:none
 setxkbmap -layout us,ru -option grp:win_space_toggle -option ctrl:nocaps 
-
 
 dunst &
 flameshot &
