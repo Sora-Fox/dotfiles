@@ -1,37 +1,25 @@
 # ~/.config/zsh/prompt.zsh
 
 custom_prompt() {
-  local RED="%F{red}"
-  local YELLOW="%F{220}"
-  local SAND="%F{183}"
-  local GREEN="%F{green}"
-  local CYAN="%F{cyan}"
-  local BROWN="%F{yellow}"
+  local WDIR_COL="%F{#88C0D0}"
+  local GITB_COL="%F{#A3BE8C}"
+  local GITM_COL="%F{#EBCB8B}"
+  local SYMB_COL="%F{#D8DEE9}"
+  local NULL_COL="%f"
+  local SEP="${SYMB_COL} :: ${NULL_COL}"
 
-  local RESET="%f"
-  local SEPARATOR="%F{white} :: ${RESET}"
-
-  PROMPT=${RED}%n${RESET}
-  PROMPT+=${SEPARATOR}
-  PROMPT+=${BROWN}%~${RESET}
-
+  PROMPT=${WDIR_COL}%~${NULL_COL}
   local branch=$(git branch --show-current 2>/dev/null)
   if [[ -n "$branch" ]]; then
-      local modified=$(git diff --name-only                      2>/dev/null | wc -l)
-      local untracked=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l)
-      local staged=$(git diff --cached --name-only               2>/dev/null | wc -l)
-      local to_push=$(git log origin/$branch..$branch --oneline  2>/dev/null | wc -l)
-
-      PROMPT+=${SEPARATOR}
-      PROMPT+=${CYAN}$branch${RESET}
-      ((untracked > 0)) && PROMPT+="${SEPARATOR}${YELLOW}U~${untracked}${RESET}"
-      ((modified > 0))  && PROMPT+="${SEPARATOR}${ORANGE}M~${modified}${RESET}"
-      ((staged > 0))    && PROMPT+="${SEPARATOR}${SAND}S~${staged}${RESET}"
-      ((to_push > 0))   && PROMPT+="${SEPARATOR}${SAND}P~${to_push}${RESET}"
+      PROMPT+=${SEP}
+      if git status --porcelain 2>/dev/null | grep -q "M"; then
+          PROMPT+=${GITM_COL}$branch\*${NULL_COL}
+      else
+          PROMPT+=${GITB_COL}$branch${NULL_COL}
+      fi
   fi
-
   PROMPT+=$'\n'
-  PROMPT+="${GREEN}>${RESET} "
+  PROMPT+="${SYMB_COL}>${NULL_COL} "
 }
 
 autoload -Uz add-zsh-hook
