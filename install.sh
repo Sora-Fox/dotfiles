@@ -6,7 +6,6 @@ if ! command -v stow &> /dev/null; then
 fi
 
 stow -t $HOME alacritty
-stow -t $HOME fastfetch
 stow -t $HOME qutebrowser
 
 stow -t $HOME dunst
