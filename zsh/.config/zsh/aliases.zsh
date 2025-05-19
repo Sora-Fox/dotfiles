@@ -1,11 +1,9 @@
 # ~/.config/zsh/aliases.zsh
 
 alias gad='git add'
-alias gaa='git add -A'
 alias gcm='git commit'
-alias gca='git commit -a'
-alias gcma='git commit --amend'
-alias gcaa='git commit -a --amend'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 alias gph='git push'
 alias gpf='git push --force'
 alias gplr='git pull -r'

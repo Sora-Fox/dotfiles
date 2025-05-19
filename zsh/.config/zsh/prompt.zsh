@@ -12,7 +12,7 @@ custom_prompt() {
   local branch=$(git branch --show-current 2>/dev/null)
   if [[ -n "$branch" ]]; then
       PROMPT+=${SEP}
-      if git status --porcelain 2>/dev/null | grep -q "M"; then
+      if git status --porcelain 2>/dev/null | grep -qE "^ M|^M"; then
           PROMPT+=${GITM_COL}$branch\*${NULL_COL}
       else
           PROMPT+=${GITB_COL}$branch${NULL_COL}
