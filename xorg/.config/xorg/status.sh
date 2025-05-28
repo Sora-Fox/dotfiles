@@ -16,13 +16,14 @@ while true; do
     source_mute_status=$(pactl get-source-mute @DEFAULT_SOURCE@ 2>/dev/null | awk '{print $2}' || echo "$unknown")
     sink_mute_status=$(pactl get-sink-mute @DEFAULT_SINK@ 2>/dev/null | awk '{print $2}' || echo "$unknown")
 
-    bat_status=$(cat $battery_path/status 2>/dev/null)
+    bat_status=$(cat "$battery_path"/status 2>/dev/null)
     case "$bat_status" in
         "Charging")  bat_symbol="^" ;;
         "Discharging") bat_symbol=" " ;;
+        "Full") bat_symbol="!" ;;
         *) bat_symbol="$unknown" ;;
     esac
-    bat_perc=$(cat $battery_path/capacity 2>/dev/null || echo "$unknown")
+    bat_perc=$(cat "$battery_path"/capacity 2>/dev/null || echo "$unknown")
 
     status="[$datetime]"
     status+=" [RAM ${ram}G]"
