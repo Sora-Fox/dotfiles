@@ -17,12 +17,12 @@ export CPP=clang-cpp
 export CXX=clang++
 export AR=llvm-ar
 export NM=llvm-nm
+export LD=ld.lld
 export RANLIB=llvm-ranlib
 
-export COMMON_FLAGS="-O2 -pipe -march=native -mtune=native"
+export COMMON_FLAGS="-fuse-ld=lld -O2 -pipe -march=native -mtune=native -Wl,-O2 -Wl,--as-needed"
 export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS}"
-export LDFLAGS="-Wl,-O2 -Wl,--as-needed"
 
 export TERM=xterm-256color
 export EDITOR=emacsclient
