@@ -4,7 +4,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
+
 export XINITRC=$XDG_CONFIG_HOME/xorg/xinitrc.sh
+export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export _Z_DATA=$ZDOTDIR/z_data
@@ -20,7 +22,7 @@ export NM=llvm-nm
 export LD=ld.lld
 export RANLIB=llvm-ranlib
 
-export COMMON_FLAGS="-fuse-ld=lld -O2 -pipe -march=native -mtune=native -Wl,-O2 -Wl,--as-needed"
+export COMMON_FLAGS="-O2 -pipe -march=native -mtune=native"
 export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS}"
 
