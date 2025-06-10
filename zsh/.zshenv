@@ -6,6 +6,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_STATE_HOME=$HOME/.local/state
 
 export XINITRC=$XDG_CONFIG_HOME/xorg/xinitrc.sh
+export XAUTHORITY=$XDG_CONFIG_HOME/xorg/Xauthority
 export VIMINIT="source $XDG_CONFIG_HOME/vim/init.vim"
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
