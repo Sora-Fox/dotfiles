@@ -13,4 +13,7 @@ emacs/.config/emacs/*
 !zsh/.config/zsh/prompt.zsh
 zsh/.config/zsh/*
 
+!xorg/.config/xorg/status.sh
+!xorg/.config/xorg/xinitrc.sh
+xorg/.config/xorg/*
 
