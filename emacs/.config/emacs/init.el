@@ -63,10 +63,10 @@
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
-;; (use-package doom-themes
-;;   :demand t
-;;   :config (load-theme 'doom-material-dark t))
-(load-theme 'modus-vivendi t)
+(use-package doom-themes
+  :demand t
+  :config (load-theme 'doom-material-dark t))
+;; (load-theme 'modus-vivendi t)
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
@@ -90,8 +90,7 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-items '((projects  . 11))
-        initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (setq dashboard-items '((projects  . 10)))
   (dashboard-setup-startup-hook))
 
 (use-package vertico
