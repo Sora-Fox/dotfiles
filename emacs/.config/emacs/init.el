@@ -114,6 +114,8 @@
 (use-package flycheck
   :config (global-flycheck-mode))
 
+(use-package cmake-mode)
+
 (use-package lsp-mode
   :custom
   (lsp-keymap-prefix "C-l")
