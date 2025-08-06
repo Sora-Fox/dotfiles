@@ -1,6 +1,5 @@
 # ~/.config/zsh/.zshrc
 
-fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 fpath=($ZDOTDIR/plugins $fpath)
 
 source $ZDOTDIR/aliases.zsh
