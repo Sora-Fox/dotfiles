@@ -5,7 +5,7 @@ This repository contains my personal configuration files for various tools and a
 ### 1. Clone the Repository
 
 ```bash
-git clone --recurse-submodules --depth=1 https://github.com/Sora-Fox/dotfiles.git
+git clone --depth=1 https://github.com/Sora-Fox/dotfiles.git
 cd dotfiles
 ```
 
@@ -14,13 +14,16 @@ cd dotfiles
 Ensure you have GNU Stow installed. Install it using your package manager:
 
 ```bash
-# Arch Linux
+# Portage
+sudo emerge app-admin/stow
+
+# Pacman
 sudo pacman -S stow
 
-# Debian
+# Apt
 sudo apt install stow
 
-# Fedora
+# Dnf
 sudo dnf install stow
 ```
 
