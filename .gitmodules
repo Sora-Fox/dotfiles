@@ -1,3 +1,0 @@
-[submodule "zsh/.config/zsh/plugins/z"]
-	path = zsh/.config/zsh/plugins/z
-	url = https://github.com/rupa/z

@@ -1,4 +1,0 @@
-# ~/.config/zsh/.zprofile
-
-startx
-
