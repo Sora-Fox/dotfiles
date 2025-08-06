@@ -7,7 +7,6 @@ emacs/.config/emacs/*
 
 !zsh/.zshenv
 !zsh/.config/zsh/.zshrc
-!zsh/.config/zsh/.zprofile
 !zsh/.config/zsh/aliases.zsh
 !zsh/.config/zsh/completion.zsh
 !zsh/.config/zsh/prompt.zsh
