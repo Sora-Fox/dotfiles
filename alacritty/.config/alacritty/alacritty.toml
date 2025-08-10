@@ -1,36 +1,17 @@
 # ~/.config/alacritty/alacritty.toml
 
-[terminal]
-shell = "/bin/zsh"
-
-[env]
-TERM = "xterm-256color"
-
 [window]
-decorations_theme_variant = "Dark"
 dimensions = { columns = 80, lines = 25 }
-padding = { x = 0, y = 0 }
-dynamic_padding = false
-startup_mode = "Windowed"
-opacity = 1.0
+decorations = "None"
+dynamic_title = false
 
 [font]
-size = 9.0
 normal = { family = "Source Code Pro", style = "Regular" }
+size = 9.0
 
-[colors]
-primary = { background = "#181818", foreground = "#c5c8c6" }
-cursor = { text = "#1d1f21", cursor = "#c5c8c6" }
-
-[colors.bright]
-black = "#444444"
-red = "#FF2740"
-green = "#ABE15B"
-yellow = "#FFD242"
-blue = "#0092FF"
-magenta = "#9A5FEB"
-cyan = "#67FFF0"
-white = "#FFFFFF"
+[colors.primary]
+foreground = "#C5C8C6"
+background = "#181818"
 
 [colors.normal]
 black = "#232323"
@@ -42,11 +23,15 @@ magenta = "#9A5FEB"
 cyan = "#00D8EB"
 white = "#FFFFFF"
 
-[scrolling]
-history = 10000
-
-[cursor]
-style = "Block"
+[colors.bright]
+black = "#444444"
+red = "#FF2740"
+green = "#ABE15B"
+yellow = "#FFD242"
+blue = "#0092FF"
+magenta = "#9A5FEB"
+cyan = "#67FFF0"
+white = "#FFFFFF"
 
 [mouse]
 hide_when_typing = true
