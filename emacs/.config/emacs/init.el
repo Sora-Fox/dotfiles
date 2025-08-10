@@ -77,16 +77,16 @@
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
 
-(use-package doom-modeline
-  ;; :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-vcs-max-length 20)
-  (doom-modeline-bar-width -1)
-  (doom-modeline-position-line-format '("%l"))
-  (doom-modeline-total-line-number t)
-  (doom-modeline-percent-position nil)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-icon nil))
+;; (use-package doom-modeline
+;;   :hook (after-init . doom-modeline-mode)
+;;   :custom
+;;   (doom-modeline-vcs-max-length 20)
+;;   (doom-modeline-bar-width -1)
+;;   (doom-modeline-position-line-format '("%l"))
+;;   (doom-modeline-total-line-number t)
+;;   (doom-modeline-percent-position nil)
+;;   (doom-modeline-buffer-encoding nil)
+;;   (doom-modeline-icon nil))
 
 (use-package dashboard
   :config
