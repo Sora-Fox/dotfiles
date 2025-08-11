@@ -1,17 +1,15 @@
 # ~/.config/zsh/completion.zsh
 
 zmodload zsh/complist
-autoload -U compinit
+autoload -Uz compinit
 compinit
 _comp_options+=(globdots)
 
-setopt MENU_COMPLETE
-setopt AUTO_LIST
-setopt COMPLETE_IN_WORD
+setopt MENU_COMPLETE AUTO_LIST COMPLETE_IN_WORD
 
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh_completion"
 zstyle ':completion:*' complete true
 zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort modification
