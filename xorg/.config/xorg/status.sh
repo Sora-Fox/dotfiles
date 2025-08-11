@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.config/status.sh
+# ~/.config/xorg/status.sh
 
 unknown="n/a"
 interval=0.7
