@@ -5,7 +5,12 @@ unknown="n/a"
 interval=0.7
 date_format="%m/%d %I:%M"
 
-battery_path=$(find /sys/class/power_supply -name 'BAT*' 2>/dev/null | head -n1)
+battery_dev=$(ls /sys/class/power_supply 2>/dev/null | grep -E '^BAT' | head -n1)
+if [ -n "$battery_dev" ]; then
+  battery_path="/sys/class/power_supply/$battery_dev"
+else
+  battery_path=""
+fi
 
 while true; do
     datetime=$(date +"$date_format" || echo "$unknown" )
@@ -34,6 +39,6 @@ while true; do
     status+=" [BAT${bat_symbol}${bat_perc}%]"
 
     xsetroot -name "$status"
-    sleep $interval
+    sleep "$interval"
 done
 
