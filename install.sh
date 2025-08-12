@@ -7,7 +7,6 @@ fi
 
 stow -t $HOME zsh
 stow -t $HOME alacritty
-stow -t $HOME qutebrowser
 
 stow -t $HOME dunst
 stow -t $HOME xorg
