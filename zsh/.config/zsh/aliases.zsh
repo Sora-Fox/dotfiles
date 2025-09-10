@@ -29,8 +29,10 @@ if command -v ls &>/dev/null; then
 fi
 
 command -v tree &>/dev/null && alias tree='tree -C'
-command -v bat &>/dev/null && alias bat='bat --theme OneHalfDark'
+command -v grep &>/dev/null && alias grep='grep --color=auto'
+command -v clang-tidy &>/dev/null && alias clang-tidy='clang-tidy --use-color'
 command -v xclip &>/dev/null && alias cpy='xclip -selection clipboard'
+command -v bat &>/dev/null && alias bat='bat --theme OneHalfDark'
 
 alias ..='cd ..'
 alias ...='cd ../..'
