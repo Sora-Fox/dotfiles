@@ -39,8 +39,10 @@
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org"   . "https://orgmode.org/elpa/")
-                         ("elpa"  . "https://elpa.gnu.org/packages/")))
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("nongnu elpa" . "https://elpa.nongnu.org/nongnu/")
+                         ("gnu elpa"  . "https://elpa.gnu.org/packages/")
+                         ("org"   . "https://orgmode.org/elpa/")))
 (package-initialize)
 (unless (package-installed-p 'use-package)
         (package-refresh-contents)
@@ -63,10 +65,10 @@
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
-(use-package doom-themes
-  :demand t
-  :config (load-theme 'doom-material-dark t))
-;; (load-theme 'modus-vivendi t)
+;; (use-package doom-themes
+;;   :demand t
+;;   :config (load-theme 'doom-material-dark t))
+(load-theme 'modus-vivendi t)
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
@@ -76,17 +78,6 @@
 
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
-
-;; (use-package doom-modeline
-;;   :hook (after-init . doom-modeline-mode)
-;;   :custom
-;;   (doom-modeline-vcs-max-length 20)
-;;   (doom-modeline-bar-width -1)
-;;   (doom-modeline-position-line-format '("%l"))
-;;   (doom-modeline-total-line-number t)
-;;   (doom-modeline-percent-position nil)
-;;   (doom-modeline-buffer-encoding nil)
-;;   (doom-modeline-icon nil))
 
 (use-package dashboard
   :config
@@ -115,6 +106,8 @@
   :config (global-flycheck-mode))
 
 (use-package cmake-mode)
+(use-package go-mode)
+(use-package haskell-mode)
 
 (use-package lsp-mode
   :custom
@@ -123,7 +116,11 @@
   (lsp-headerline-breadcrumb-enable nil)
   :hook ((c++-mode . lsp-deferred)
          (c-mode . lsp-deferred)
+         (java-mode . lsp-deferred)
+         (go-mode . lsp-deferred)
+         (haskell-mode . lsp-deferred)
          (before-save . lsp-format-buffer)))
+
 
 (use-package ccls
   :custom (ccls-executable "ccls"))
