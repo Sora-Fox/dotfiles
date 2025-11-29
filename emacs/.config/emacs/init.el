@@ -15,11 +15,10 @@
 (setopt display-line-numbers-type 'relative)
 (global-set-key (kbd "C-x C-g") 'recentf-open-files)
 
-(setq compile-command "bear -- make -j$(nproc)"
+(setq inhibit-startup-message t
+      initial-scratch-message nil
       frame-title-format "Emacs"
       make-backup-files nil
-      inhibit-startup-message t
-      initial-scratch-message nil
       split-width-threshold 0
       split-height-threshold nil
       scroll-step 1
@@ -50,6 +49,9 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(use-package saveplace
+  :init (save-place-mode 1))
+
 (use-package org
   :ensure nil
   :custom
@@ -65,10 +67,10 @@
 (use-package ansi-color
   :hook (compilation-filter . ansi-color-compilation-filter))
 
-;; (use-package doom-themes
-;;   :demand t
-;;   :config (load-theme 'doom-material-dark t))
-(load-theme 'modus-vivendi t)
+(use-package doom-themes
+  :demand t
+  :config (load-theme 'doom-material-dark t))
+;; (load-theme 'modus-vivendi t)
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
