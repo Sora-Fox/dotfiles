@@ -2,7 +2,7 @@
 # ~/.config/xorg/status.sh
 
 unknown="n/a"
-interval=0.7
+interval=3
 date_format="%m/%d %I:%M"
 
 battery_dev=$(ls /sys/class/power_supply 2>/dev/null | grep -E '^BAT' | head -n1)
