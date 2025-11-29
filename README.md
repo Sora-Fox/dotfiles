@@ -1,6 +1,6 @@
 # Dotfiles Repository
 
-This repository contains my personal configuration files for various tools and applications.
+This repository contains my personal configuration files.
 
 ### 1. Clone the Repository
 
@@ -14,23 +14,16 @@ cd dotfiles
 Ensure you have GNU Stow installed. Install it using your package manager:
 
 ```bash
-# Portage
-sudo emerge app-admin/stow
-
-# Pacman
-sudo pacman -S stow
-
-# Apt
-sudo apt install stow
-
-# Dnf
-sudo dnf install stow
+emerge -a app-admin/stow
+pacman -S stow
+apt install stow
+dnf install stow
 ```
 
 ### 3. Install Configurations
 
 ```bash
-  ./install.sh
+./install.sh
 ```
 
 ##  License
