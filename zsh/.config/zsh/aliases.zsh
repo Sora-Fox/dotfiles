@@ -15,8 +15,8 @@ if command -v git &>/dev/null; then
   alias gph='git push'
   alias gpln='git pull --no-rebase'
   alias gplr='git pull -r'
-  alias gre='git rebase'
-  alias gri='git rebase -i'
+  alias gre='git rebase --committer-date-is-author-date'
+  alias gri='git rebase -i --committer-date-is-author-date'
   alias gst='git status -sb'
   alias gsw='git switch'
 fi
