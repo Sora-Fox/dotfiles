@@ -18,6 +18,7 @@
 (setq inhibit-startup-message t
       initial-scratch-message nil
       frame-title-format "Emacs"
+      ring-bell-function 'ignore
       make-backup-files nil
       split-width-threshold 0
       split-height-threshold nil
