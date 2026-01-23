@@ -2,7 +2,6 @@
 # ~/.config/xorg/xinitrc.sh
 
 command -v setxkbmap &>/dev/null && setxkbmap -layout us,ru -option grp:win_space_toggle -option ctrl:nocaps
-command -v xmodmap &>/dev/null && xmodmap -e "remove Control = Control_L"
 command -v xmodmap &>/dev/null && xmodmap -e "keycode 37 = NoSymbol"
 
 command -v brightnessctl &>/dev/null && brightnessctl set 5%
